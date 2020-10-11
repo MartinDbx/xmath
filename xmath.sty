@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}[2020-02-02]
 \ProvidesPackage{xmath}[2020-02-02]
 
-\RequirePackage{amssymb, amsthm, amsmath, geometry}
+\RequirePackage{amssymb, amsthm, amsmath, dsfont, geometry}
 
 %% commands definition
 
@@ -30,13 +30,15 @@
 \newcommand{\SO}{\text{SO}}
 \newcommand{\stab}{\text{Stab}}
 \renewcommand{\S}{\textrm{S}}
-\renewcommand{\var}{\text{Var}}
+\newcommand{\var}{\text{Var}}
 \newcommand{\Z}{\text{Z}}
 
 % operators
 \newcommand{\card}{\text{card}}
 \newcommand{\normal}{\triangleleft}
 \newcommand{\reunion}{\bigsqcup}
+\newcommand{\eng}[1]{\langle #1 \rangle}
+\newcommand{\ord}{\text{ord}}
 
 % others
 \newcommand{\id}{\text{Id}}
