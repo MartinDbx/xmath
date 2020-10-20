@@ -14,11 +14,15 @@
 \NeedsTeXFormat{LaTeX2e}[2020-02-02]
 \ProvidesPackage{xmath}[2020-02-02]
 
-\RequirePackage{amssymb, amsthm, amsmath, dsfont, geometry}
+%% Xmath extends
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage{dsfont}
 
-%% commands definition
 
-% sets - part 1
+%% Commands definition
+% Classical sets
 \newcommand{\nat}{\mathbb{N}}
 \newcommand{\intg}{\mathbb{Z}}
 \newcommand{\rat}{\mathbb{Q}}
@@ -27,7 +31,7 @@
 \newcommand{\field}{\mathbb{F}}
 \newcommand{\ZnZ}[1]{\mathbb{Z}/{#1}\mathbb{Z}}
 
-% sets - part 2
+% Other sets
 \DeclareMathOperator{\A}{A}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\D}{D}
@@ -47,24 +51,18 @@
 \renewcommand{\S}{\textrm{S}}
 \DeclareMathOperator{\Z}{Z}
 
-
-
-% operators
+% Operators
 \DeclareMathOperator{\card}{card}
+\newcommand{\Id}{Id}
 \newcommand{\normal}{\triangleleft}
 \newcommand{\gen}[1]{\langle #1 \rangle}
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
 \DeclareMathOperator{\Var}{Var}
-\newcommand{\Id}{Id}
-\DeclareMathOperator{\d}{d}
 
-% others
+% Others
 \newcommand*{\xbox}[1]{\framebox{#1}}
-
-
-%% environments definition
 
 
 \endinput

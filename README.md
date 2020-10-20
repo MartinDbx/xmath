@@ -24,15 +24,18 @@ The complete documentation is available in [xmath.pdf](xmath.pdf).
 
 -----------------------------------------------------------
 ### Installation
-**macOS**  You just have to open the Terminal, to go to the directory of the project and to write the following command :
+**macOS**  You just have to open the Terminal, to go to the
+directory of the project and to write the following command :
 ```
 $ bash setup.sh
 ```
 -----------------------------------------------------------
 ### Manual installation
-**macOS** If this is the first package you install, you must first create the following directory : `~/Library/texmf/tex/latex/`.
+**macOS** If this is the first package you install, you must
+first create the following directory : `~/Library/texmf/tex/latex/`.
 
-Once the directory is created, simply drop the file `xmath.sty` from the project into it.
+Once the directory is created, simply drop the file `xmath.sty`
+from the project into it.
 
 -----------------------------------------------------------
 ### License
