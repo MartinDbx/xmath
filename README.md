@@ -27,7 +27,7 @@ The complete documentation is available in [xmath.pdf](resources/xmath.pdf).
 **macOS**  You just have to open the Terminal, to go to the
 directory of the project and to write the following command :
 ```
-$ bash setup.sh
+$ sudo bash setup.sh
 ```
 -----------------------------------------------------------
 ### Manual installation
