@@ -2,7 +2,7 @@
 
 
 # Xmath package
-The Xmath package is an easy way to write math in LATEX. Xmath is an extension of the *amsthm*, *amssymb*, *amsmath* and *dsfont* packages. This package implements a large number of macros for sets, functions, operators commonly used in math.
+The Xmath package is an easy way to write math in LaTeX. Xmath is an extension of the *amsthm*, *amssymb*, *amsmath* and *dsfont* packages. This package implements a large number of macros for sets, functions, operators commonly used in math.
 
 -----------------------------------------------------------
 ## Content of the update
@@ -20,7 +20,7 @@ This version introduces mathematical sets, many common operators and style eleme
 
 -----------------------------------------------------------
 ### Package Content
-The complete documentation is available in [xmath.pdf](xmath.pdf).
+The complete documentation is available in [xmath.pdf](resources/xmath.pdf).
 
 -----------------------------------------------------------
 ### Installation
