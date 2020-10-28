@@ -9,12 +9,9 @@ The Xmath package is an easy way to write math in LaTeX. Xmath is an extension o
 -----------------------------------------------------------
 ## Content of the update
 
-Visual modification of the command `\normal`.
-
-<div align="center">
-
 ![Version](https://img.shields.io/badge/Version-1.0.1-blue)
-</div>
+
+Visual modification of the command `\normal`.
 
 -----------------------------------------------------------
 ## General information
