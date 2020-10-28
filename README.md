@@ -1,13 +1,20 @@
 <img src="resources/logo.png">
 
 
+
 # Xmath package
 The Xmath package is an easy way to write math in LaTeX. Xmath is an extension of the *amsthm*, *amssymb*, *amsmath*, *dsfont* , *stmaryrd*, *mathrsfs*,
 *eufrak*, *yfonts* and *txfonts* packages. This package implements a large number of macros for sets, functions, operators commonly used in math.
 
 -----------------------------------------------------------
 ## Content of the update
-This version introduces mathematical sets, many common operators and style elements.
+
+Visual modification of the command `\normal`.
+
+<div align="center">
+
+![Version](https://img.shields.io/badge/Version-1.0.1-blue)
+</div>
 
 -----------------------------------------------------------
 ## General information
