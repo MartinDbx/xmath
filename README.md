@@ -45,4 +45,4 @@ from the project into it.
 -----------------------------------------------------------
 ### License
 
-[![License](https://img.shields.io/badge/License-LaTeX_Project_Public_License-blue)](resources/license)
+[![License](https://img.shields.io/badge/License-LaTeX_Project_Public_License-blue)](LICENSE)
