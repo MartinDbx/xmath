@@ -1,15 +1,21 @@
-<img src="resources/logo.png">
+<div align="center">
+  <img src="resources/logo.png">
+</div>
 
 
 
 # Xmath package
+
+![GitHub repo size](https://img.shields.io/github/repo-size/MartinDbx/xmath-package)
+![version](https://img.shields.io/badge/version-1.0.1-blue)
+[![License](https://img.shields.io/badge/license-LaTeX_Project_Public_License-blue)](LICENSE)
+
+
 The Xmath package is an easy way to write math in LaTeX. Xmath is an extension of the *amsthm*, *amssymb*, *amsmath*, *dsfont* , *stmaryrd*, *mathrsfs*,
 *eufrak*, *yfonts* and *txfonts* packages. This package implements a large number of macros for sets, functions, operators commonly used in math.
 
 -----------------------------------------------------------
 ## Content of the update
-
-![Version](https://img.shields.io/badge/Version-1.0.1-blue)
 
 Visual modification of the command `\normal`.
 
@@ -21,7 +27,6 @@ Visual modification of the command `\normal`.
     - [Package content](#package-content)
     - [Installation](#installation)
     - [Manual installation](#manual-installation)
-    - [License](#license)
 
 -----------------------------------------------------------
 ### Package content
@@ -42,7 +47,4 @@ first create the following directory : `~/Library/texmf/tex/latex/`.
 Once the directory is created, simply drop the file `xmath.sty`
 from the project into it.
 
------------------------------------------------------------
-### License
 
-[![License](https://img.shields.io/badge/License-LaTeX_Project_Public_License-blue)](LICENSE)
