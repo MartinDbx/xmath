@@ -7,12 +7,11 @@
 # Xmath package
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/MartinDbx/xmath-package)
-![version](https://img.shields.io/badge/version-1.0.1-blue)
+![version](https://img.shields.io/badge/version-1.0.2-blue)
 [![License](https://img.shields.io/badge/license-LaTeX_Project_Public_License-blue)](LICENSE)
 
 
-The Xmath package is an easy way to write math in LaTeX. Xmath is an extension of the *amsthm*, *amssymb*, *amsmath*, *dsfont* , *stmaryrd*, *mathrsfs*,
-*eufrak*, *yfonts* and *txfonts* packages. This package implements a large number of macros for sets, functions, operators commonly used in math.
+The Xmath package is an easy way to write math in LaTeX. Xmath is an extension of the *amsthm*, *amssymb*, *amsmath*, *dsfont* , *stmaryrd*, *mathrsfs*, *yfonts* and *txfonts* packages. This package implements a large number of macros for sets, functions, operators commonly used in math.
 
 -----------------------------------------------------------
 ## Content of the update
