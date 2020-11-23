@@ -1,62 +1,106 @@
-%%
-%% Copyright (C) 2020 by Martin Debaisieux
-%%
-%% This file may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either
-%% version 1.3 of this license or (at your option) any later
-%% version. The latest version of this license is in:
-%%
-%% http://www.latex-project.org/lppl.txt
-%%
-%% and version 1.3 or later is part of all distributions of
-%% LaTeX version 2005/12/01 or later.
-%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                  %%
+%% Copyright (C) 2020 by Martin Debaisieux                          %%
+%%                                                                  %%
+%% This file may be distributed and/or modified under the           %%
+%% conditions of the LaTeX Project Public License, either           %%
+%% version 1.3 of this license or (at your option) any later        %%
+%% version. The latest version of this license is in:               %%
+%%                                                                  %%
+%% http://www.latex-project.org/lppl.txt                            %%
+%%                                                                  %%
+%% and version 1.3 or later is part of all distributions of         %%
+%% LaTeX version 2005/12/01 or later.                               %%
+%%                                                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
 \NeedsTeXFormat{LaTeX2e}[2020-02-02]
 \ProvidesPackage{xmath}[2020-02-02]
-
+%
 %% Xmath extends
-\RequirePackage{stmaryrd}
-\RequirePackage{amsthm}
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
-\RequirePackage{dsfont}
-\RequirePackage{mathrsfs}
-\RequirePackage{yfonts}
-\RequirePackage{txfonts}
-
-
-%% Commands definition
-% Classical sets
-\newcommand{\nat}{\mathbb{N}}
-\newcommand{\intg}{\mathbb{Z}}
-\newcommand{\rat}{\mathbb{Q}}
-\newcommand{\real}{\mathbb{R}}
-\newcommand{\comp}{\mathbb{C}}
-\newcommand{\field}{\mathbb{F}}
-\newcommand{\ZnZ}[1]{\mathbb{Z}/{#1}\mathbb{Z}}
-
-% Other sets
-\DeclareMathOperator{\A}{A}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\D}{D}
-\DeclareMathOperator{\E}{E}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\GL}{GL}
+\RequirePackage{stmaryrd,
+                amsthm,
+                amsmath,
+                amssymb,
+                dsfont,
+                mathrsfs,
+                yfonts,
+                mdframed,
+                xstring}
+%
+%
+%% COMMANDS DEFINITION
+%
+% 1 ANALYSIS
+% 1.1 SETS
 \DeclareMathOperator{\Graph}{Graph}
-\renewcommand{\L}{L}
+\newcommand{\Le}{\mathrm{L}}
+\newcommand{\T}{\mathscr{T}}
+\newcommand{\Va}[1]{\mathscr{V}_{#1}}
+% 1.2 OPERATORS
+\DeclareMathOperator{\dist}{dist}
+\newcommand{\rest}[2]{#1_{\restriction_{#2}}}
+%
+% 2 ALGEBRA
+% 2.1 SETS
+\newcommand{\A}{\mathfrak{A}}
+\DeclareMathOperator{\ACF}{ACF}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\D}{D}
+\newcommand{\E}{\mathfrak{E}}
+\DeclareMathOperator{\G}{G}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{im}
+\newcommand{\IC}{\mathbb{C}}
+\newcommand{\IF}{\mathbb{F}}
+\newcommand{\IK}{\mathbb{K}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\IO}{\mathbb{O}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\IQ}{\mathbb{Q}}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IS}{\mathbb{S}}
+\newcommand{\IZ}{\mathbb{Z}}
+\DeclareMathOperator{\GL}{GL}
+\renewcommand{\L}{\mathcal{L}}
 \DeclareMathOperator{\M}{M}
 \DeclareMathOperator{\N}{N}
 \renewcommand{\O}{O}
 \DeclareMathOperator{\Orb}{Orb}
 \DeclareMathOperator{\Q}{Q}
+\newcommand{\set}[2]{\{#1\hspace{0mm} \mid\hspace{0mm} #2\}}
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\SO}{SO}
 \DeclareMathOperator{\Stab}{Stab}
-\renewcommand{\S}{\textrm{S}}
+\renewcommand{\S}{\mathfrak{S}}
 \DeclareMathOperator{\Z}{Z}
-
-% Operators
+\newcommand{\ZnZ}[1]{\mathbb{Z}/{#1}\mathbb{Z}}
+% 2.2 OBJECTS
+\makeatletter
+\def\vect{%
+   \@ifnextchar[%
+     {\vectbody@i}
+     {\vectbody@i[1]}%
+}
+\def\vectbody@i[#1]{%
+   \@ifnextchar[%
+     {\vectbody@ii{#1}}
+     {\vectbody@ii{#1}[n]}%
+}
+\def\vectbody@ii#1[#2]#3{%
+  \IfInteger{#1}
+    {#3_{#1},\dots, #3_{#2}}
+    {#3_{1},\dots, #3_{#1}}
+}
+\makeatother
+% 2.3 OPERATORS
 \DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\Car}{Car}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\Id}{Id}
 \newcommand{\normal}{\vartriangleleft}
 \newcommand{\gen}[1]{\langle #1 \rangle}
@@ -64,10 +108,28 @@
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
 \DeclareMathOperator{\sign}{sign}
+%
+% 3 LOGIC
+\DeclareMathOperator{\Conseq}{Conseq}
+\DeclareMathOperator{\Frechet}{Fr\hat{e}chet}
+\DeclareMathOperator{\Th}{Th}
+%
+% 4 PROBABILITY and STATISTICS
 \DeclareMathOperator{\Var}{Var}
-
-% Others
+%
+% 5 DOCUMENT STRUCUTURES
+\newenvironment{corollary}{\begin{mdframed}{\textbf{Corollaire.}}}{\end{mdframed}}
+\newenvironment{definition}{\begin{mdframed}{\textbf{Définition.}}}{\end{mdframed}}
+\newenvironment{lemma}{\begin{mdframed}{\textbf{Lemme.}}}{\end{mdframed}}
+\newenvironment{property}{\begin{mdframed}{\textbf{Propriété.}}}{\end{mdframed}}
+\newenvironment{properties}{\begin{mdframed}{\textbf{Propriétés.}}}{\end{mdframed}}
+\newenvironment{proposition}{\begin{mdframed}{\textbf{Proposition.}}}{\end{mdframed}}
+\newenvironment{theorem}{\begin{mdframed}{\textbf{Théorème.}}}{\end{mdframed}}
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+%
+% OTHERS
+\newcommand{\Xmath}{\textbf{X\textsc{math}} }
 \newcommand*{\xbox}[1]{\framebox{#1}}
-
-
 \endinput
