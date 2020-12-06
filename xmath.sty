@@ -170,5 +170,18 @@
 \newcommand*\longsimleftarrow{%
 \oset{\raisebox{-0.60ex}[0ex][0ex]{$_\sim$}}{\longleftarrow}
 }
+\newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
+\newcommand{\hooklongleftarrow}{\longleftarrow\joinrel\rhook}
+\makeatletter
+\newcommand\quot@textstyle[2]{{#1}/{#2}}
+\newcommand\quot[2]{%
+  \mathchoice
+    {{#1}\big/_{\displaystyle {#2}}
+    }
+  {\quot@textstyle{#1}{#2}}
+  {\quot@textstyle{#1}{#2}}
+  {\quot@textstyle{#1}{#2}}
+}
+\makeatother
 
 \endinput
