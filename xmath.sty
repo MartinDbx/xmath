@@ -31,6 +31,17 @@
                 xstring}
 %
 %
+\makeatletter
+\newcommand*{\declarecommand}{%
+  \@star@or@long\declare@command
+}
+\newcommand*{\declare@command}[1]{%
+  \provide@command{#1}{}%
+  \renew@command{#1}%
+}
+\makeatother
+%
+%
 %% COMMANDS DEFINITION
 %
 % 1 ANALYSIS
@@ -45,39 +56,49 @@
 %
 % 2 ALGEBRA
 % 2.1 SETS
-\newcommand{\A}{\mathfrak{A}}
+\declarecommand{\A}{\mathfrak{A}}
 \DeclareMathOperator{\ACF}{ACF}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\D}{D}
-\newcommand{\E}{\mathfrak{E}}
+\declarecommand{\E}{\mathfrak{E}}
 \DeclareMathOperator{\G}{G}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\im}{im}
-\newcommand{\IC}{\mathbb{C}}
-\newcommand{\IF}{\mathbb{F}}
-\newcommand{\IK}{\mathbb{K}}
-\newcommand{\IN}{\mathbb{N}}
-\newcommand{\IO}{\mathbb{O}}
-\newcommand{\IP}{\mathbb{P}}
-\newcommand{\IQ}{\mathbb{Q}}
-\newcommand{\IR}{\mathbb{R}}
-\newcommand{\IS}{\mathbb{S}}
-\newcommand{\IZ}{\mathbb{Z}}
+\declarecommand{\IC}{\mathbb{C}}
+\declarecommand{\IF}{\mathbb{F}}
+\declarecommand{\IK}{\mathbb{K}}
+\declarecommand{\IS}{\mathbb{S}}
+\declarecommand{\IN}{\mathbb{N}}
+\declarecommand{\IO}{\mathbb{O}}
+\declarecommand{\IP}{\mathbb{P}}
+\declarecommand{\IQ}{\mathbb{Q}}
+\declarecommand{\IR}{\mathbb{R}}
+\declarecommand{\IZ}{\mathbb{Z}}
 \DeclareMathOperator{\GL}{GL}
-\renewcommand{\L}{\mathcal{L}}
+\declarecommand{\L}{\mathcal{L}}
 \DeclareMathOperator{\M}{M}
 \DeclareMathOperator{\N}{N}
-\renewcommand{\O}{O}
+\declarecommand{\O}{\text{O}}
 \DeclareMathOperator{\Orb}{Orb}
 \DeclareMathOperator{\Q}{Q}
-\newcommand{\set}[2]{\{#1\hspace{0mm} \mid\hspace{0mm} #2\}}
+\declarecommand{\set}[2]{\{#1\hspace{0mm} \mid\hspace{0mm} #2\}}
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\SO}{SO}
 \DeclareMathOperator{\Stab}{Stab}
 \renewcommand{\S}{\mathfrak{S}}
 \DeclareMathOperator{\Z}{Z}
-\newcommand{\ZnZ}[1]{\mathbb{Z}/{#1}\mathbb{Z}}
+\makeatletter
+\newcommand\ZnZ@textstyle[1]{\mathbb{Z}/{#1}\mathbb{Z}}
+\newcommand\ZnZ[1]{%
+  \mathchoice
+    {\mathbb{Z}\big/_{\displaystyle {#1}\mathbb{Z}}
+    }
+  {\ZnZ@textstyle{#1}}
+  {\ZnZ@textstyle{#1}}
+  {\ZnZ@textstyle{#1}}
+}
+\makeatother
 % 2.2 OBJECTS
 \makeatletter
 \def\vect{%
@@ -102,8 +123,8 @@
 \DeclareMathOperator{\ev}{ev}
 \DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\Id}{Id}
-\newcommand{\normal}{\vartriangleleft}
-\newcommand{\gen}[1]{\langle #1 \rangle}
+\declarecommand{\normal}{\vartriangleleft}
+\declarecommand{\gen}[1]{\langle #1 \rangle}
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
@@ -130,6 +151,24 @@
   {\end{aligned}\right\rbrace}
 %
 % OTHERS
-\newcommand{\Xmath}{\textbf{X\textsc{math}} }
+\declarecommand{\Xmath}{\textbf{X\textsc{math}} }
 \newcommand*{\xbox}[1]{\framebox{#1}}
+\newcommand*\simrightarrow{%
+\xrightarrow{\raisebox{-0.3ex}[0ex][0ex]{$_\sim$}}
+}
+\newcommand*\simleftarrow{%
+\xleftarrow{\raisebox{-0.3ex}[0ex][0ex]{$_\sim$}}
+}
+\makeatletter
+\newcommand{\oset}[2]{%
+    {\mathop{#2}\limits^{\vbox to -.5\ex@{\kern-\tw@\ex@
+    \hbox{#1}\vss}}}}
+\makeatother
+\newcommand*\longsimrightarrow{%
+\oset{\raisebox{-0.60ex}[0ex][0ex]{$_\sim$}}{\longrightarrow}
+}
+\newcommand*\longsimleftarrow{%
+\oset{\raisebox{-0.60ex}[0ex][0ex]{$_\sim$}}{\longleftarrow}
+}
+
 \endinput
