@@ -92,7 +92,7 @@
 \newcommand\ZnZ@textstyle[1]{\mathbb{Z}/{#1}\mathbb{Z}}
 \newcommand\ZnZ[1]{%
   \mathchoice
-    {\mathbb{Z}\big/_{\displaystyle {#1}\mathbb{Z}}
+    {\mathbb{Z}\raisebox{-0.20ex}[0ex][0ex]{$\big/$}_{\displaystyle {#1}\mathbb{Z}}
     }
   {\ZnZ@textstyle{#1}}
   {\ZnZ@textstyle{#1}}
@@ -176,7 +176,7 @@
 \newcommand\quot@textstyle[2]{{#1}/{#2}}
 \newcommand\quot[2]{%
   \mathchoice
-    {{#1}\big/_{\displaystyle {#2}}
+    {{#1}\raisebox{-0.20ex}[0ex][0ex]{$\big/$}_{\displaystyle {#2}}
     }
   {\quot@textstyle{#1}{#2}}
   {\quot@textstyle{#1}{#2}}
