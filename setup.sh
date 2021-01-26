@@ -8,4 +8,4 @@ if [ ! -d "$dir" ]; then
 fi
 
 cp xmath.sty "$dir"
-echo "Xmath package is now installed 🌈"
+echo "Xmath package is now installed 🌈."
