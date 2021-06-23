@@ -1,12 +1,11 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                  %%
-%% Copyright (C) 2020 by Martin Debaisieux                          %%
+%% Copyright (C) 2021 by Martin Debaisieux.                         %%
 %%                                                                  %%
 %% This file may be distributed and/or modified under the           %%
 %% conditions of the LaTeX Project Public License, either           %%
-%% version 1.3 of this license or (at your option) any later        %%
-%% version. The latest version of this license is in:               %%
+%% version 1.3 of this license or any later version.                %%
+%% The latest version of this license is in:                        %%
 %%                                                                  %%
 %% http://www.latex-project.org/lppl.txt                            %%
 %%                                                                  %%
@@ -14,209 +13,209 @@
 %% LaTeX version 2005/12/01 or later.                               %%
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-\NeedsTeXFormat{LaTeX2e}[2020-02-02]
-\ProvidesPackage{xmath}[2020-02-02]
-%
-%% Xmath extends
-\RequirePackage{stmaryrd,
-                amsthm,
-                amsmath,
-                amssymb,
-                dsfont,
-                mathrsfs,
-                yfonts,
-                mdframed,
-                xstring}
-%
-%
-\makeatletter
-\newcommand*{\declarecommand}{%
-  \@star@or@long\declare@command
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{xmath}[2021-06-18]
+
+\RequirePackage{mathtools}
+\RequirePackage{xstring}
+\RequirePackage{ifthen}
+\RequirePackage{xspace}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{dsfont}
+
+\newif\if@mathbb \@mathbbfalse
+
+\DeclareOption{mathbb}{\@mathbbtrue}
+\DeclareOption*{
+    \PackageWarning{xmath}{Package xmath: unknown '\CurrentOption' option}
 }
-\newcommand*{\declare@command}[1]{%
-  \provide@command{#1}{}%
-  \renew@command{#1}%
-}
-\makeatother
-%
-%
-%% COMMANDS DEFINITION
-%
-% 1 ANALYSIS
-% 1.1 SETS
-\DeclareMathOperator{\Graph}{Graph}
-\newcommand{\Le}{\mathrm{L}}
-\newcommand{\T}{\mathscr{T}}
-\newcommand{\Va}[1]{\mathscr{V}_{#1}}
-% 1.2 OPERATORS
-\DeclareMathOperator{\dist}{dist}
-\newcommand{\rest}[2]{#1_{\restriction_{#2}}}
-%
-% 2 ALGEBRA
-% 2.1 SETS
-\declarecommand{\A}{\mathfrak{A}}
-\DeclareMathOperator{\ACF}{ACF}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\D}{D}
-\declarecommand{\E}{\mathfrak{E}}
-\DeclareMathOperator{\G}{G}
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\Int}{Int}
-\declarecommand{\IC}{\mathbb{C}}
-\declarecommand{\IF}{\mathbb{F}}
-\declarecommand{\IK}{\mathbb{K}}
-\declarecommand{\IS}{\mathbb{S}}
-\declarecommand{\IN}{\mathbb{N}}
-\declarecommand{\IO}{\mathbb{O}}
-\declarecommand{\IP}{\mathbb{P}}
-\declarecommand{\IQ}{\mathbb{Q}}
-\declarecommand{\IR}{\mathbb{R}}
-\declarecommand{\IZ}{\mathbb{Z}}
-\DeclareMathOperator{\GL}{GL}
-\declarecommand{\L}{\mathcal{L}}
-\DeclareMathOperator{\M}{M}
-\DeclareMathOperator{\N}{N}
-\declarecommand{\O}{\text{O}}
-\DeclareMathOperator{\Orb}{Orb}
-\DeclareMathOperator{\Q}{Q}
-\declarecommand{\set}[2]{\{#1\hspace{0mm} \mid\hspace{0mm} #2\}}
-\DeclareMathOperator{\SL}{SL}
-\DeclareMathOperator{\SO}{SO}
-\DeclareMathOperator{\Stab}{Stab}
-\renewcommand{\S}{\mathfrak{S}}
-\DeclareMathOperator{\Z}{Z}
+\ProcessOptions\relax
+
+\if@mathbb
+    \providecommand\IA{\mathbb{A}}
+    \providecommand\IB{\mathbb{B}}
+    \providecommand\IC{\mathbb{C}}
+    \providecommand\ID{\mathbb{D}}
+    \providecommand\IE{\mathbb{E}}
+    \providecommand\IF{\mathbb{F}}
+    \providecommand\IG{\mathbb{G}}
+    \providecommand\IH{\mathbb{H}}
+    \providecommand\II{\mathbb{I}}
+    \renewcommand*\IJ{\mathbb{J}}
+    \providecommand\IK{\mathbb{K}}
+    \providecommand\IL{\mathbb{L}}
+    \providecommand\IM{\mathbb{M}}
+    \providecommand\IN{\mathbb{N}}
+    \providecommand\IO{\mathbb{O}}
+    \providecommand\IP{\mathbb{P}}
+    \providecommand\IQ{\mathbb{Q}}
+    \providecommand\IR{\mathbb{R}}
+    \providecommand\IS{\mathbb{S}}
+    \providecommand\IT{\mathbb{T}}
+    \providecommand\IU{\mathbb{U}}
+    \providecommand\IV{\mathbb{V}}
+    \providecommand\IW{\mathbb{W}}
+    \providecommand\IX{\mathbb{X}}
+    \providecommand\IY{\mathbb{Y}}
+    \providecommand\IZ{\mathbb{Z}}
+\fi
+
 \makeatletter
-\newcommand\ZnZ@textstyle[1]{\mathbb{Z}/{#1}\mathbb{Z}}
-\newcommand\ZnZ[1]{%
-  \mathchoice
-    {\mathbb{Z}\raisebox{-0.20ex}[0ex][0ex]{$\big/$}_{\displaystyle {#1}\mathbb{Z}}
+    \newcommand*{\DeclareCommand}{
+        \@star@or@long\declare@command
     }
-  {\ZnZ@textstyle{#1}}
-  {\ZnZ@textstyle{#1}}
-  {\ZnZ@textstyle{#1}}
-}
+    \newcommand*{\declare@command}[1]{
+        \provide@command{#1}{}
+        \renew@command{#1}
+    }
+
+    \newcommand\quot@textstyle[2]{{#1}/{#2}}
+    \providecommand\quot[2]{
+        \mathchoice
+        {{#1}\raisebox{-0.20ex}[0ex][0ex]{$\big/$}_{\displaystyle{#2}}}
+        {\quot@textstyle{#1}{#2}}
+        {\quot@textstyle{#1}{#2}}
+        {\quot@textstyle{#1}{#2}}
+    }
+
+    \def\vect{\@ifnextchar[{\vectbody@i}{\vectbody@i[1]}}
+    \def\vectbody@i[#1]{
+        \@ifnextchar[{\vectbody@ii{#1}}{\vectbody@ii{#1}[n]}
+    }
+    \def\vectbody@ii#1[#2]#3{
+        \IfInteger{#1}{#3_{#1},\dots, #3_{#2}}{#3_{1},\dots, #3_{#1}}
+    }
+
+    \newcommand\func@textstyle[6][\rightarrow]{#2\colon#3#1#4\colon#5\mapsto#6}
+
+    \providecommand{\func}[6][\longrightarrow]{
+        \mathchoice
+        {#2\colon
+        \begin{tabular}{rcl}
+            $#3$&$#1$&$#4$\\$#5$&$\longmapsto$&$#6$
+        \end{tabular}}
+        {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
+        {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
+        {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
+    }
+
+    \providecommand{\bfunc}[6][\longrightarrow]{
+        \mathchoice
+        {#2\colon\left\lbrace
+            \begin{tabular}{rcl}
+                $#3$&$#1$&$#4$\\$#5$&$\longmapsto$&$#6$
+            \end{tabular}
+        \right.
+        }
+        {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
+        {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
+        {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
+    }
 \makeatother
-% 2.2 OBJECTS
+
+\DeclareCommand\rest[2]{#1_{\restriction_{#2}}}
+\DeclareCommand\ZnZ[1]{\quot{\mathbb{Z}}{{#1}\mathbb{Z}}}
+\DeclareCommand\gen[1]{\langle#1\rangle}
+\DeclareCommand{\range}[3][cc]{
+    \ifthenelse{\equal{cc}{#1}}{\mathopen{[}#2\,;#3\mathclose{]}}{
+        \ifthenelse{\equal{oc}{#1}}{\mathopen{]}#2\,;#3\mathclose{]}}{
+            \ifthenelse{\equal{co}{#1}}{\mathopen{[}#2\,;#3\mathclose{[}}{
+                \ifthenelse{\equal{oo}{#1}}{\mathopen{]}#2\,;#3\mathclose{[}
+                }{
+                    \mathopen{[}#2\,;#3\mathclose{]}
+                    \PackageWarning{xmath}{Package xmath: unknown '#1' option for range command. Default is 'cc'}
+                }
+            }
+        }
+    }
+}
+\DeclareCommand{\Xmath}{{\bfseries\scshape Xmath}\xspace}
+
+\DeclareMathOperator\Alt{\mathfrak{A}}
+\DeclareMathOperator\Aut{Aut}
+\DeclareMathOperator\Car{Car}
+\DeclareMathOperator\card{card}
+\DeclareMathOperator\cis{cis}
+\DeclareMathOperator\dist{dist}
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\ev{ev}
+\DeclareMathOperator\Frac{Frac}
+\DeclareMathOperator\Gal{Gal}
+\DeclareMathOperator\GL{GL}
+\DeclareMathOperator\Graph{Graph}
+\DeclareMathOperator\Hom{Hom}
+\DeclareMathOperator\Id{Id}
+\DeclareMathOperator\im{im}
+\DeclareMathOperator\Int{Int}
+\DeclareMathOperator\Orb{Orb}
+\DeclareMathOperator\ord{ord}
+\DeclareMathOperator\pgcd{pgcd}
+\DeclareMathOperator\ppcm{ppcm}
+\DeclareMathOperator\sign{sign}
+\DeclareMathOperator\SL{SL}
+\DeclareMathOperator\SO{SO}
+\DeclareMathOperator\Stab{Stab}
+\DeclareMathOperator\Sym{\mathfrak{S}}
+
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
+\def\setaux#1|{#1\;\delimsize\vert\;}
+
 \makeatletter
-\def\vect{%
-   \@ifnextchar[%
-     {\vectbody@i}
-     {\vectbody@i[1]}%
-}
-\def\vectbody@i[#1]{%
-   \@ifnextchar[%
-     {\vectbody@ii{#1}}
-     {\vectbody@ii{#1}[n]}%
-}
-\def\vectbody@ii#1[#2]#3{%
-  \IfInteger{#1}
-    {#3_{#1},\dots, #3_{#2}}
-    {#3_{1},\dots, #3_{#1}}
-}
+    \newcommand{\oset}[2]{%
+        {\mathop{#2}\limits^{\vbox to -.5\ex@{\kern-\tw@\ex@
+        \hbox{#1}\vss}}}}
+
+    \newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+
+    \newcommand*\widebar[1]{
+        \begingroup
+        \def\mathaccent##1##2{
+            \rel@kern{0.8}%
+            \overline{\rel@kern{-0.8}\macc@nucleus\rel@kern{0.2}}
+            \rel@kern{-0.2}
+        }
+        \macc@depth\@ne
+        \let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+        \mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}
+        \macc@set@skewchar\relax
+        \let\mathaccentV\macc@nested@a
+        \macc@nested@a\relax111{#1}
+        \endgroup
+    }
+
+    \newcommand*{\asign}{\mathrel{\rlap{%
+        \raisebox{0.3ex}{$\m@th\cdot$}}%
+        \raisebox{-0.3ex}{$\m@th\cdot$}}%
+    =}
+
+    \newcommand*{\signa}{=\mathrel{\rlap{%
+        \raisebox{0.3ex}{$\m@th\cdot$}}%
+        \raisebox{-0.3ex}{$\m@th\cdot$}}%
+    }
 \makeatother
-% 2.3 OPERATORS
-\DeclareMathOperator{\card}{card}
-\DeclareMathOperator{\cis}{cis}
-\DeclareMathOperator{\Car}{Car}
-\DeclareMathOperator{\ev}{ev}
-\DeclareMathOperator{\Frac}{Frac}
-\DeclareMathOperator{\Id}{Id}
-\declarecommand{\normal}{\vartriangleleft}
-\declarecommand{\gen}[1]{\langle #1 \rangle}
-\DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\pgcd}{pgcd}
-\DeclareMathOperator{\ppcm}{ppcm}
-\DeclareMathOperator{\sign}{sign}
-%
-% 3 LOGIC
-\DeclareMathOperator{\Conseq}{Conseq}
-\DeclareMathOperator{\Frechet}{Fr\hat{e}chet}
-\DeclareMathOperator{\Th}{Th}
-%
-% 4 PROBABILITY and STATISTICS
-\DeclareMathOperator{\Var}{Var}
-%
-% 5 DOCUMENT STRUCUTURES
-\addto\captionsfrench{\def\proofname{Preuve}}
-\newenvironment{corollary}{\begin{mdframed}{\textbf{Corollaire.}}}{\end{mdframed}}
-\newenvironment{definition}{\begin{mdframed}{\textbf{Définition.}}}{\end{mdframed}}
-\newenvironment{lemma}{\begin{mdframed}{\textbf{Lemme.}}}{\end{mdframed}}
-\newenvironment{property}{\begin{mdframed}{\textbf{Propriété.}}}{\end{mdframed}}
-\newenvironment{properties}{\begin{mdframed}{\textbf{Propriétés.}}}{\end{mdframed}}
-\newenvironment{proposition}{\begin{mdframed}{\textbf{Proposition.}}}{\end{mdframed}}
-\newenvironment{resolution}{\noindent\textit{Résolution.}}{}
-\newenvironment{theorem}{\begin{mdframed}{\textbf{Théorème.}}}{\end{mdframed}}
-\newenvironment{rcases}
-  {\left.\begin{aligned}}
-  {\end{aligned}\right\rbrace}
-%
-% OTHERS
-\declarecommand{\Xmath}{\textbf{X\textsc{math}} }
-\newcommand*{\xbox}[1]{\framebox{#1}}
-\newcommand*\simrightarrow{%
-\xrightarrow{\raisebox{-0.3ex}[0ex][0ex]{$_\sim$}}
+
+\newcommand*\simrightarrow{
+    \xrightarrow{\raisebox{-0.3ex}[0ex][0ex]{$_\sim$}}
 }
-\newcommand*\simleftarrow{%
-\xleftarrow{\raisebox{-0.3ex}[0ex][0ex]{$_\sim$}}
+\newcommand*\simleftarrow{
+    \xleftarrow{\raisebox{-0.3ex}[0ex][0ex]{$_\sim$}}
 }
-\makeatletter
-\newcommand{\oset}[2]{%
-    {\mathop{#2}\limits^{\vbox to -.5\ex@{\kern-\tw@\ex@
-    \hbox{#1}\vss}}}}
-\makeatother
-\newcommand*\longsimrightarrow{%
-\hspace{1mm}\oset{\raisebox{-0.60ex}[0ex][0ex]{$_\sim$}}{\longrightarrow}\hspace{1mm}
+\newcommand*\longsimrightarrow{
+    \hspace{1mm}\oset{\raisebox{-0.60ex}[0ex][0ex]{$_\sim$}}{\longrightarrow}\hspace{1mm}
 }
-\newcommand*\longsimleftarrow{%
-\hspace{1mm}\oset{\raisebox{-0.60ex}[0ex][0ex]{$_\sim$}}{\longleftarrow}\hspace{1mm}
+\newcommand*\longsimleftarrow{
+    \hspace{1mm}\oset{\raisebox{-0.60ex}[0ex][0ex]{$_\sim$}}{\longleftarrow}\hspace{1mm}
 }
 \newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
 \newcommand{\hooklongleftarrow}{\longleftarrow\joinrel\rhook}
-\makeatletter
-\newcommand\quot@textstyle[2]{{#1}/{#2}}
-\newcommand\quot[2]{%
-  \mathchoice
-    {{#1}\raisebox{-0.20ex}[0ex][0ex]{$\big/$}_{\displaystyle {#2}}
-    }
-  {\quot@textstyle{#1}{#2}}
-  {\quot@textstyle{#1}{#2}}
-  {\quot@textstyle{#1}{#2}}
+\DeclareRobustCommand\longtwoheadrightarrow{
+    \relbar\joinrel\twoheadrightarrow
 }
-\makeatother
-\makeatletter
-\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
-\newcommand*\widebar[1]{%
-  \begingroup
-  \def\mathaccent##1##2{%
-    \rel@kern{0.8}%
-    \overline{\rel@kern{-0.8}\macc@nucleus\rel@kern{0.2}}%
-    \rel@kern{-0.2}%
-  }%
-  \macc@depth\@ne
-  \let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
-  \mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
-  \macc@set@skewchar\relax
-  \let\mathaccentV\macc@nested@a
-  \macc@nested@a\relax111{#1}%
-  \endgroup
+\DeclareRobustCommand\longtwoheadleftarrow{
+    \twoheadleftarrow\joinrel\relbar
 }
 
-\DeclareRobustCommand\longtwoheadrightarrow
-     {\relbar\joinrel\twoheadrightarrow}
-\DeclareRobustCommand\longtwoheadleftarrow
-     {\twoheadleftarrow\joinrel\relbar}
-\makeatletter
-\newcommand*{\asign}{\mathrel{\rlap{%
-                     \raisebox{0.3ex}{$\m@th\cdot$}}%
-                     \raisebox{-0.3ex}{$\m@th\cdot$}}%
-                     =}
-\newcommand*{\signa}{=\mathrel{\rlap{%
-                     \raisebox{0.3ex}{$\m@th\cdot$}}%
-                     \raisebox{-0.3ex}{$\m@th\cdot$}}%
-                     }
-\makeatother
 \endinput
