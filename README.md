@@ -6,7 +6,7 @@
 
 # Xmath
 
-![GitHub repo size](https://img.shields.io/github/repo-size/MartinDbx/xmath-package)
+![GitHub repo size](https://img.shields.io/github/repo-size/MartinDbx/xmath)
 ![version](https://img.shields.io/badge/version-3.0.0-blue)
 [![License](https://img.shields.io/badge/license-LaTeX_Project_Public_License-blue)](LICENSE)
 
