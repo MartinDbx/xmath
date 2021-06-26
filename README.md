@@ -2,13 +2,11 @@
   <img src="resources/logo.png">
 </div>
 
-
-
 # Xmath
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/MartinDbx/xmath)
 ![version](https://img.shields.io/badge/version-3.0.0-blue)
-[![License](https://img.shields.io/badge/license-LaTeX_Project_Public_License-blue)](LICENSE)
+[![License](https://img.shields.io/badge/license-LaTeX_Project_Public_License-blue?logo=LaTeX)](LICENSE)
 
 The Xmath package is an easy way to write math in LaTeX. Xmath is an extension of frequently used mathematical packages with new commands for specific sets, arrows and operators. This package also implements useful shortcuts.
 
@@ -33,6 +31,6 @@ from the project into it.
 
 -----------------------------------------------------------
 ### Contact
-If you have a suggestion or if you encounter a problem with Xmath,  send me a pull request.
+If you have a suggestion or if you encounter a problem with Xmath, send me a pull request.
 
 
