@@ -64,10 +64,10 @@
 \fi
 
 \makeatletter
-    \newcommand*{\DeclareCommand}{
+    \newcommand*\DeclareCommand{
         \@star@or@long\declare@command
     }
-    \newcommand*{\declare@command}[1]{
+    \newcommand*\declare@command[1]{
         \provide@command{#1}{}
         \renew@command{#1}
     }
@@ -91,7 +91,7 @@
 
     \newcommand\func@textstyle[6][\rightarrow]{#2\colon#3#1#4\colon#5\mapsto#6}
 
-    \providecommand{\func}[6][\longrightarrow]{
+    \providecommand\func[6][\longrightarrow]{
         \mathchoice
         {#2\colon
         \begin{tabular}{rcl}
@@ -102,7 +102,7 @@
         {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
     }
 
-    \providecommand{\bfunc}[6][\longrightarrow]{
+    \providecommand\bfunc[6][\longrightarrow]{
         \mathchoice
         {#2\colon\left\lbrace
             \begin{tabular}{rcl}
@@ -119,7 +119,7 @@
 \DeclareCommand\rest[2]{#1_{\restriction_{#2}}}
 \DeclareCommand\ZnZ[1]{\quot{\mathbb{Z}}{{#1}\mathbb{Z}}}
 \DeclareCommand\gen[1]{\langle#1\rangle}
-\DeclareCommand{\range}[3][cc]{
+\DeclareCommand\range[3][cc]{
     \ifthenelse{\equal{cc}{#1}}{\mathopen{[}#2\,;#3\mathclose{]}}{
         \ifthenelse{\equal{oc}{#1}}{\mathopen{]}#2\,;#3\mathclose{]}}{
             \ifthenelse{\equal{co}{#1}}{\mathopen{[}#2\,;#3\mathclose{[}}{
@@ -132,7 +132,7 @@
         }
     }
 }
-\DeclareCommand{\Xmath}{{\bfseries\scshape Xmath}\xspace}
+\DeclareCommand\Xmath{{\bfseries\scshape Xmath}\xspace}
 
 \DeclareMathOperator\Alt{\mathfrak{A}}
 \DeclareMathOperator\Aut{Aut}
@@ -186,12 +186,12 @@
         \endgroup
     }
 
-    \newcommand*{\asign}{\mathrel{\rlap{%
+    \newcommand*\asign{\mathrel{\rlap{%
         \raisebox{0.3ex}{$\m@th\cdot$}}%
         \raisebox{-0.3ex}{$\m@th\cdot$}}%
     =}
 
-    \newcommand*{\signa}{=\mathrel{\rlap{%
+    \newcommand*\signa{=\mathrel{\rlap{%
         \raisebox{0.3ex}{$\m@th\cdot$}}%
         \raisebox{-0.3ex}{$\m@th\cdot$}}%
     }
@@ -209,8 +209,8 @@
 \newcommand*\longsimleftarrow{
     \hspace{1mm}\oset{\raisebox{-0.60ex}[0ex][0ex]{$_\sim$}}{\longleftarrow}\hspace{1mm}
 }
-\newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
-\newcommand{\hooklongleftarrow}{\longleftarrow\joinrel\rhook}
+\newcommand\hooklongrightarrow{\lhook\joinrel\longrightarrow}
+\newcommand\hooklongleftarrow{\longleftarrow\joinrel\rhook}
 \DeclareRobustCommand\longtwoheadrightarrow{
     \relbar\joinrel\twoheadrightarrow
 }
