@@ -113,6 +113,52 @@
         {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
         {\func@textstyle[#1]{#2}{#3}{#4}{#5}{#6}}
     }
+
+    \newcommand\afunc@textstyle[5][\rightarrow]{#2#1#3\colon#4\mapsto#5}
+
+    \providecommand\afunc[5][\longrightarrow]{
+        \mathchoice
+        {
+        \begin{tabular}{rcl}
+            $#2$&$#1$&$#3$\\$#4$&$\longmapsto$&$#5$
+        \end{tabular}}
+        {\afunc@textstyle[#1]{#2}{#3}{#4}{#5}}
+        {\afunc@textstyle[#1]{#2}{#3}{#4}{#5}}
+        {\afunc@textstyle[#1]{#2}{#3}{#4}{#5}}
+    }
+
+    \providecommand\abfunc[5][\longrightarrow]{
+        \mathchoice
+        {\left\lbrace
+            \begin{tabular}{rcl}
+                $#2$&$#1$&$#3$\\$#4$&$\longmapsto$&$#5$
+            \end{tabular}
+        \right.
+        }
+        {\afunc@textstyle[#1]{#2}{#3}{#4}{#5}}
+        {\afunc@textstyle[#1]{#2}{#3}{#4}{#5}}
+        {\afunc@textstyle[#1]{#2}{#3}{#4}{#5}}
+    }
+
+    \newcommand\link@textstyle[4][\rightarrow]{#2\colon#3#1#4}
+
+    \providecommand\link[4][\longrightarrow]{
+        \mathchoice
+        {#2\colon#3\;#1\;#4}
+        {\link@textstyle[#1]{#2}{#3}{#4}}
+        {\link@textstyle[#1]{#2}{#3}{#4}}
+        {\link@textstyle[#1]{#2}{#3}{#4}}
+    }
+
+    \newcommand\alink@textstyle[3][\rightarrow]{#2#1#3}
+
+    \providecommand\alink[3][\longrightarrow]{
+        \mathchoice
+        {#2\;#1\;#3}
+        {\alink@textstyle[#1]{#2}{#3}}
+        {\alink@textstyle[#1]{#2}{#3}}
+        {\alink@textstyle[#1]{#2}{#3}}
+    }
 \makeatother
 
 \DeclareCommand\rest[2]{#1_{\restriction_{#2}}}
@@ -131,6 +177,8 @@
         }
     }
 }
+\DeclareCommand\eg{\textit{e.g.}\xspace}
+\DeclareCommand\ie{\textit{i.e.}\xspace}
 \DeclareCommand\Xmath{{\bfseries\scshape Xmath}\xspace}
 
 \DeclareMathOperator\Alt{\mathfrak{A}}
@@ -153,10 +201,12 @@
 \DeclareMathOperator\ord{ord}
 \DeclareMathOperator\pgcd{pgcd}
 \DeclareMathOperator\ppcm{ppcm}
+\DeclareMathOperator\Rac{Rac}
 \DeclareMathOperator\sign{sign}
 \DeclareMathOperator\SL{SL}
 \DeclareMathOperator\SO{SO}
 \DeclareMathOperator\Stab{Stab}
+\DeclareMathOperator\Syl{Syl}
 \DeclareMathOperator\Sym{\mathfrak{S}}
 
 \DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}

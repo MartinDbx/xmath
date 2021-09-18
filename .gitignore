@@ -1,6 +1,5 @@
 .DS_Store
 .latex
-*.tex
-xperiment
-xmath
 *.zip
+.latex
+test.*
