@@ -161,7 +161,7 @@
     }
 \makeatother
 
-\DeclareCommand\rest[2]{#1_{\restriction_{#2}}}
+\DeclareCommand\rest[2]{{#1}_{\restriction_{#2}}}
 \DeclareCommand\ZnZ[1]{\quot{\mathbb{Z}}{{#1}\mathbb{Z}}}
 \DeclareCommand\gen[1]{\langle#1\rangle}
 \DeclareCommand\range[3][cc]{
@@ -181,15 +181,19 @@
 \DeclareCommand\ie{\textit{i.e.}\xspace}
 \DeclareCommand\Xmath{{\bfseries\scshape Xmath}\xspace}
 
+\DeclareMathOperator\adh{adh}
 \DeclareMathOperator\Alt{\mathfrak{A}}
-\DeclareMathOperator\Aut{Aut}
+\DeclareMathOperator\Ann{Ann}
 \DeclareMathOperator\Car{Car}
 \DeclareMathOperator\card{card}
 \DeclareMathOperator\cis{cis}
+\DeclareMathOperator\coker{coker}
 \DeclareMathOperator\dist{dist}
 \DeclareMathOperator\dom{dom}
 \DeclareMathOperator\ev{ev}
+\DeclareMathOperator\End{End}
 \DeclareMathOperator\Frac{Frac}
+\DeclareMathOperator\Frob{Frob}
 \DeclareMathOperator\Gal{Gal}
 \DeclareMathOperator\GL{GL}
 \DeclareMathOperator\Graph{Graph}

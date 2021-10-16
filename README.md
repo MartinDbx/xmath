@@ -8,7 +8,7 @@
 
   ![language](https://img.shields.io/badge/language-EN,%20FR-important)
   ![GitHub repo size](https://img.shields.io/github/repo-size/MartinDbx/xmath)
-  ![version](https://img.shields.io/badge/version-v3.0.0-blue)
+  ![version](https://img.shields.io/badge/version-v3.1.0-blue)
   [![License](https://img.shields.io/badge/license-LaTeX_Project_Public_License_1.3-blue?logo=LaTeX)](LICENSE)
 
 </div>
@@ -22,7 +22,7 @@ The Xmath package is an easy way to write math in LaTeX. Xmath is an extension o
 
 -----------------------------------------------------------
 ### Package content
-The complete documentation is available [here](resources/xmath-documentation.pdf).
+The complete documentation is available [here](Resources/xmath-documentation.pdf).
 
 -----------------------------------------------------------
 ### Automatic installation

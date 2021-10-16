@@ -1,5 +1,5 @@
 .DS_Store
 .latex
-*.zip
-.latex
 test.*
+Resources/Contents
+Resources/xmath-documentation.tex
