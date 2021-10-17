@@ -22,7 +22,7 @@ The Xmath package is an easy way to write math in LaTeX. Xmath is an extension o
 
 -----------------------------------------------------------
 ### Package content
-The complete documentation is available [here](Resources/xmath-documentation.pdf).
+The complete documentation is available [here](resources/xmath-documentation.pdf).
 
 -----------------------------------------------------------
 ### Automatic installation
